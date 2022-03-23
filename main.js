@@ -1,108 +1,15 @@
-let left = null, right = null, oper = null; resValue = null; res = false;
+function onSubmit(event){
+    event.preventDefault();
+    const w = parseFloat(event.target[0].value)
+    const h = parseFloat(event.target[1].value)
 
-function save(){
-    const inp = document.getElementById("top-inp");
-    let value =""
+    if(isNaN(w) || isNaN(h) || w <= 0 || h <= 0){
+        alert("적절한 값이 아닙니다.")
+        return;
+    }
 
-    if(left === null)
-         return;
-    value += left + " "
-    inp.value = value
-
-
-    if(oper === null)
-         return;
-    value += oper + " "
-    inp.value = value
+   
     
-    if(right === null)
-         return;
-    value += right + " "
-    inp.value = value
-
-    if(res) {
-
-        switch(oper){
-            case "+":
-                resValue = parseInt(left) + parseInt(right)
-                break;
-            case "-":
-                resValue = parseInt(left) - parseInt(right)
-                break;
-            case "/":
-                resValue = parseInt(left) / parseInt(right)
-                break;
-            case "*":
-                resValue = parseInt(left) * parseInt(right)
-                break;
-        }
-
-        value += "= " + resValue;
-        inp.value = value
-    }
 
 }
 
-function inputNum(num){
-   if(oper === null){
-       if(left === null){
-           left = `${num}`
-       }
-
-       else {
-           if(num === 0 && parseInt(left) === 0)
-                 return;
-           left += `${num}`
-       }
-   }
-
-   else {
-       if(right === null) {
-           right =`${num}`
-       }
-       else {
-        if(num === 0 && parseInt(right) === 0)
-        return;
-           right += `${num}`
-       }
-   }
-   save();
-}
-
-function inputOper(op) {
-    if(left === null && op === "-"){
-        left = "-"
-        save()
-        return;
-    }
-
-    if(left === "-" && op === "-"){
-
-        return;
-    }
-    if(op === "-" && oper !== null){
-        right = "-"
-        save()
-        return;
-    }
-    oper = op;
-    save()
-}
-
-function inputEqu() {
-
-    if(left === null || right === null || !oper)
-    return;
-    
-    if(res){
-        left = resValue
-        right = null
-        resValue = null
-        oper = null
-        res = false
-    }
-    else {
-        res = true
-    }
-    save()
-}
