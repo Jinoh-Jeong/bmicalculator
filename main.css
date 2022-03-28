@@ -4,7 +4,6 @@
     background-color: #2699fb;
     color: #fff;
     border-radius:  4px;
-    outline: none;
     border: none;
     display:  inline-flex;
     align-items: center;
@@ -43,18 +42,11 @@
     align-items: flex-end;
 }
 
-.flex-row{
-    display:flex;
-    flex-direction:  row;
-    gap: 16px;
-    margin-bottom:  4px;
-    align-items: flex-end;
-}
 
 .form-inp{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 .form-inp label{
     font-size: 12px;
