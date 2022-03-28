@@ -9,7 +9,30 @@ function onSubmit(event){
     }
 
    
+    const bmi = w/(h*h)
+
+    console.log(bmi.toFixed(2))
+
+    const res = document.getElementById("res")
+
+    res.style.display = "block"
     
+    document.getElementById("bmi").innerText = bmi.toFixed(2)
+    document.getElementById("meter").value = bmi
+
+    let state = "정상"
+    let common = true
+
+    if(bmi < 18.5){ 
+      state = "저체중"
+      common = false
+    }
+    if(bmi >= 25){ 
+       state = "과체중"
+       common = false 
+    }
+    const stateElement = document.getElementById("state");
+    stateElement.innerText = state
+    stateElement.style.color = common ? "#29FF21" : "#FF3A3A"
 
 }
-
