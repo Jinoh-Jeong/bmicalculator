@@ -3,6 +3,7 @@
 
 
 >> 프로그램 실행 이미지
+
 ![초기화면](https://user-images.githubusercontent.com/78059088/160356197-f75e4891-1118-4098-84d1-95d92c43f6dd.png)
 
 
